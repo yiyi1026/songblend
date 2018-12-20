@@ -86,20 +86,45 @@ def df_matrix(train_set, test_size=0.2):
 
     tracks_dict_by_popularity = { v: index for index, v in np.ndenumerate(tracks_by_popularity)}
 
+    # all unique playlists into dict
+    playlists_pid = sort(train_set.pid.unique())
+    # .unique().sort()
+    print('playlists_pid')
+    print(playlists_pid)
+    print('pid show ends')
+    playlists_dict = {v: index for index, v in np.ndenumerate(playlists_pid)}
+    # tracks_dict_by_popularity = { v: index for index, v in np.ndenumerate(tracks_by_popularity)}
+
     print('df_matrix intermediate results')
 
     # hard-code dataset size
     playlist_track_matrix = np.zeros(shape=(int(4000*(1-test_size)),len(train_set)))
 
-    
+    for index, row in train_set.iterrows():
+        if index == 2:
+            break
+        # idx
+        track_uri = row['tracks_track_uri']
+        track_uri_idx = tracks_dict_by_popularity[track_uri]
+        playlist_pid = row['pid']
+        playlist_pid_idx = playlists_dict[playlist_pid]
+        # print(f'playlist_pid is in row {playlist_pid_idx}.')
+        # playlist_track_matrix[playlist_pid_idx][track_uri_idx] = 1
+
+        # print(f'track_uri is in col {track_uri_idx}.')
+        # print(f'playlist_pid is in row {playlist_pid_idx}.')
+        # print(playlist_track_matrix[playlist_pid_idx][track_uri_idx])
+        print(';;;;;;;')
+        print(f'data for index {index} is\n{row}.')
+        print(':::::::')
+    print('iteration ends')
+    print("~~~~~~~~~")
+
     # print(tracks_dict_by_popularity.values())
-    print(playlist_track_matrix.shape)
+    # print(playlist_track_matrix.shape)
     print('================')
 
-
-
-# from sklearn.neighbors import NearestNeighbors
-
+# from sklearn.neighbors import NearestNeighbors.
 
 print('Test starts.')
 print('_____________________')

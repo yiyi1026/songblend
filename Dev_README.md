@@ -39,12 +39,13 @@ probably not yet
 
 ### Dataset Preparation Period - 1 ~ 2 days
 ============================
-
-- remove duplicate, incorrect data
-- build database
-- import data subset/ whole size
+- [x] import data from json files
+- [x] remove duplicate, incorrect data
+- [x] build database
 
 ## Coding period - 7 ~ 9 days
+- [x] build similarity functions
+- [ ] build training model
 -------------
 
 ### Algorithms Coding/ Model Training Period - 3 ~ 5 days
@@ -54,9 +55,9 @@ probably not yet
 
 ### UI period - 1 ~ 2 days
 ============================
-- user interface build & decoration period
-- input 
-- output playlists( >= 10 songs)
+- [ ]  user interface build & decoration period
+- [ ]  input 
+- [ ]  output playlists( >= 10 songs)
 
 ### spotify API - 1 ~ 2 days
 ============================
